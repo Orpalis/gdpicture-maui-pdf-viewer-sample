@@ -18,7 +18,7 @@ public static class MauiProgram
 
     public static MauiApp CreateMauiApp()
     {
-        new GdPicture14.LicenseManager().RegisterKEY("0499485907387127663371864");
+        new GdPicture14.LicenseManager().RegisterKEY("");
 
         var builder = MauiApp.CreateBuilder();
         builder

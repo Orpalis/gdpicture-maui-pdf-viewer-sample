@@ -68,18 +68,6 @@ public partial class MainPage : ContentPage
     }
 
 
-    private void SinglePageView(object sender, EventArgs e)
-    {
-        GdViewer1.PageDisplayMode = PageDisplayMode.SinglePageView;
-    }
-
-
-    private void MultipageView(object sender, EventArgs e)
-    {
-        GdViewer1.PageDisplayMode = PageDisplayMode.MultiplePagesView;
-    }
-
-
     private void HighlightSelectedText(object sender, EventArgs e)
     {
         GdViewer1.HighlightSelectedText();

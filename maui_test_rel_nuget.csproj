@@ -72,11 +72,9 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="GdPicture.MAUI" Version="0.9.0.3" />
+		<PackageReference Include="GdPicture.MAUI" Version="0.9.0.4" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
 	</ItemGroup>
-
-
 
 	<ItemGroup>
 	  <Folder Include="Resources\Images\" />

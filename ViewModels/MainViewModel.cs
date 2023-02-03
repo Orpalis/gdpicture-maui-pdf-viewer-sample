@@ -24,6 +24,8 @@ namespace maui_test.ViewModels
         private StrikethroughSelectedTextCommand _strikethroughSelectedTextCommand;
         private RemoveSelectedTextCommand _removeSelectedTextCommand;
         private CopySelectedTextCommand _copySelectedTextCommand;
+        private SinglePageViewCommand _singlePageViewCommand;
+        private MultiPageViewCommand _multiPageViewCommand;
 
 
         public ICommand ExitCommand
@@ -170,6 +172,24 @@ namespace maui_test.ViewModels
         }
 
 
+        public ICommand SinglePageViewCommand
+        {
+            get
+            {
+                return _singlePageViewCommand;
+            }
+        }
+
+
+        public ICommand MultiPageViewCommand
+        {
+            get
+            {
+                return _multiPageViewCommand;
+            }
+        }
+
+
         public GdViewer Viewer
         {
             get
@@ -233,6 +253,12 @@ namespace maui_test.ViewModels
                 _removeSelectedTextCommand.UpdateCanExecute(!string.IsNullOrWhiteSpace(_viewer.SelectedText) && _viewer.HasTextRemovalSupport);
                 _copySelectedTextCommand.UpdateCanExecute(!string.IsNullOrWhiteSpace(_viewer.SelectedText));
             }
+            
+            if (e.PropertyName == "DocumentLoaded" || e.PropertyName == "PageDisplayMode")
+            {
+                _singlePageViewCommand.UpdateCanExecute(_viewer.PageDisplayMode == GdPicture14.PageDisplayMode.MultiplePagesView);
+                _multiPageViewCommand.UpdateCanExecute(_viewer.PageDisplayMode != GdPicture14.PageDisplayMode.MultiplePagesView);
+            }
         }
 
 
@@ -263,6 +289,8 @@ namespace maui_test.ViewModels
             _strikethroughSelectedTextCommand = new StrikethroughSelectedTextCommand(this);
             _removeSelectedTextCommand = new RemoveSelectedTextCommand(this);
             _copySelectedTextCommand = new CopySelectedTextCommand(this);
+            _singlePageViewCommand = new SinglePageViewCommand(this);
+            _multiPageViewCommand = new MultiPageViewCommand(this);
         }
     }
 }

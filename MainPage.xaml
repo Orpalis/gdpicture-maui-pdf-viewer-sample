@@ -74,9 +74,9 @@
 
             <MenuFlyoutSubItem Text="Page Display">
                 <MenuFlyoutItem Text="Single Page View" 
-                                Clicked="SinglePageView" />
+                                Command="{Binding SinglePageViewCommand}" />
                 <MenuFlyoutItem Text="Enable Scrolling"
-                                Clicked="MultipageView" />
+                                Command="{Binding MultiPageViewCommand}" />
             </MenuFlyoutSubItem>
 
             <MenuFlyoutSeparator />
@@ -94,7 +94,6 @@
                     <MenuFlyoutItem Text="200%"
                                 Clicked="Zoom200" />
                 </MenuFlyoutSubItem>
-
 
                 <MenuFlyoutSeparator />
 
