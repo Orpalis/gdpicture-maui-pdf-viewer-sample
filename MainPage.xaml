@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:maui_test.ViewModels"
+             xmlns:GdPicture14="clr-namespace:GdPicture14.MAUI;assembly=GdPicture.NET.14.MAUI"
+             xmlns:drawable="clr-namespace:maui_test"
+             x:Class="maui_test.MainPage">
+
+    <ContentPage.BindingContext>
+        <vm:MainViewModel/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.MenuBarItems>
+        <MenuBarItem Text="File">
+            <MenuFlyoutItem Text="Open"
+                            Clicked="LoadDocument"
+            />
+
+            <MenuFlyoutItem Text="Save As PDF"
+                            Command="{Binding SaveAsPDFCommand}"
+            />
+            <MenuFlyoutItem Text="Close"
+                            Command="{Binding CloseDocumentCommand}"
+            />
+
+            <MenuFlyoutItem Text="Exit"
+                       Command="{Binding ExitCommand}" />
+        </MenuBarItem>
+
+        <MenuBarItem Text="Edit">
+            <MenuFlyoutSubItem Text="Page Rotation">
+                <MenuFlyoutItem Text="Rotate +90"
+                                Command="{Binding RotatePage90Command}" />
+                <MenuFlyoutItem Text="Rotate -90"
+                                Command="{Binding RotatePage270Command}" />
+            </MenuFlyoutSubItem>
+
+            <MenuFlyoutSeparator />
+
+            <MenuFlyoutSubItem Text="View Rotation">
+                <MenuFlyoutItem Text="Rotate +90"
+                                Clicked="RotateView90" />
+                <MenuFlyoutItem Text="Rotate -90"
+                                Clicked="RotateView270" />
+            </MenuFlyoutSubItem>
+
+            <MenuFlyoutSeparator />
+
+            <MenuFlyoutSubItem Text="Selected text">
+                <MenuFlyoutItem Text="Highlight"
+                                Command="{Binding HighlightSelectedTextCommand}" />
+                <MenuFlyoutSeparator />
+
+                <MenuFlyoutItem Text="Underline"
+                                Command="{Binding UnderlineSelectedTextCommand}" />
+                <MenuFlyoutSeparator />
+
+                <MenuFlyoutItem Text="Strikethrough"
+                                Command="{Binding StrikethroughSelectedTextCommand}" />
+                <MenuFlyoutSeparator />
+
+                <MenuFlyoutItem Text="Remove"
+                                Command="{Binding RemoveSelectedTextCommand}" />
+                <MenuFlyoutSeparator />
+
+                <MenuFlyoutItem Text="Copy"
+                                Command="{Binding CopySelectedTextCommand}" />
+
+            </MenuFlyoutSubItem>
+
+        </MenuBarItem>
+
+        <MenuBarItem Text="View">
+
+            <MenuFlyoutSubItem Text="Page Display">
+                <MenuFlyoutItem Text="Single Page View" 
+                                Clicked="SinglePageView" />
+                <MenuFlyoutItem Text="Enable Scrolling"
+                                Clicked="MultipageView" />
+            </MenuFlyoutSubItem>
+
+            <MenuFlyoutSeparator />
+
+            <MenuFlyoutSubItem Text="Zoom">
+                <MenuFlyoutSubItem Text="Level">
+                    <MenuFlyoutItem Text="25%"
+                                Clicked="Zoom25"/>
+                    <MenuFlyoutItem Text="50%"
+                                Clicked="Zoom50" />
+                    <MenuFlyoutItem Text="100%"
+                                Clicked="Zoom100" />
+                    <MenuFlyoutItem Text="150%"
+                                Clicked="Zoom150" />
+                    <MenuFlyoutItem Text="200%"
+                                Clicked="Zoom200" />
+                </MenuFlyoutSubItem>
+
+
+                <MenuFlyoutSeparator />
+
+                <MenuFlyoutItem Text="Zoom In"
+                                Command="{Binding ZoomInCommand}" />
+                <MenuFlyoutItem Text="Zoom Out"
+                                Command="{Binding ZoomOutCommand}" />
+            </MenuFlyoutSubItem>
+
+            <MenuFlyoutSeparator />
+
+            <MenuFlyoutSubItem Text="Page Navigation">
+                <MenuFlyoutItem Text="First Page"
+                                Command="{Binding FirstPageCommand}"/>
+                <MenuFlyoutItem Text="Previous Page"
+                                Command="{Binding PreviousPageCommand}"/>
+                <MenuFlyoutItem Text="Next Page"
+                                Command="{Binding NextPageCommand}"/>
+                <MenuFlyoutItem Text="Last Page"
+                                Command="{Binding LastPageCommand}"/>
+            </MenuFlyoutSubItem>
+
+        </MenuBarItem>
+
+
+    </ContentPage.MenuBarItems>
+
+    <Grid>
+        <GdPicture14:GdViewer x:Name="GdViewer1"  
+                              PagePreloadingMode="AllPages"
+                              PageSpacing ="10"
+                              PagePreviewQuality= "Normal"
+                              EnablePageShadow="true"
+                              EnableMousePan="true"
+                              EnableLinks="true"
+                              EnableICM="true"
+                              UseMonitorDensity="true"
+                              EnableTextSelection="true"
+                              ZoomMode="ZoomModeFitToViewer"
+                              PageDisplayMode="MultiplePagesView"
+                              ZoomStep="25"
+                              BackgroundColor="#4D4D4D" PasswordRequest="GdViewer1_PasswordRequest"  />
+    </Grid>
+
+</ContentPage>
