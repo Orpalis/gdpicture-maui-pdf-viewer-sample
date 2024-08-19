@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "maui_test_rel_nuget", "maui_test_rel_nuget.csproj", "{D9EBE785-18D5-449B-A1A2-15D429A3DACC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "maui_test", "maui_test.csproj", "{D9EBE785-18D5-449B-A1A2-15D429A3DACC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
